@@ -10,6 +10,8 @@ our @ISA = qw( EPrints::MetaField );
 
 use strict;
 
+sub is_virtual { 1 }
+
 sub get_property_defaults
 {
     my ( $self ) = @_;
