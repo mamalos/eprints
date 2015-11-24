@@ -18,7 +18,7 @@ my $new_fields = [
 },
 ];
 
-foreach my $field_def(@{$new_field})
+foreach my $field_def(@{$new_fields})
 {
 	$c->add_dataset_field('eprint', $field_def);
 
@@ -123,7 +123,7 @@ $c->{ml_field_get_single_ml_value} = sub
 
 	}
 	return undef;
-}
+};
 
 $c->{ml_field_set_single_ml_value} = sub
 {
@@ -141,5 +141,5 @@ $c->{ml_field_set_single_ml_value} = sub
 	{
 		$eprint->set_value($fieldname, [{lang=>$lang, text=>$value}]);
 	}
-}
+};
 
