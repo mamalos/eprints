@@ -1,4 +1,3 @@
-{
 package EPrints::MetaField::Virtualwithvalue;
 
 use strict;
@@ -42,4 +41,5 @@ sub set_value
      }
      return undef;
 }
-}
+
+1;

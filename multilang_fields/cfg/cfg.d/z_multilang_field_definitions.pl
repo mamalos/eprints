@@ -1,3 +1,6 @@
+#new metafield type
+use EPrints::MetaField::Virtualwithvalue;
+
 #please use these field definitions as examples of what can be done
 
 #define local fields
