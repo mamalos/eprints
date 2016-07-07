@@ -35,20 +35,18 @@ my @docs = $list->slice(0, $n);
 foreach $d (@docs)
 {
     if ($d->is_set('ml_title'))
-    {	
-		if($DEBUG) 
-		{
-	        print "item with id " . $d->id . " has already it's ml_title field set\n";
-		}
-    } else {
-        if ($d->is_set('title'))
-        {
-            my $tit = $d->get_value('title');
-            my @ml_tit = [ {lang=>'en', text=>$tit}, {lang=>'el', text=>$tit} ];
-            $d->set_value('ml_title', @ml_tit);
-            $d->commit();
-        }
-    }
-    
-}
 
+    {
+        print "item with id " . $d->id . " has already it's ml_title field set\n" if $DEBUG;
+        next;
+    }
+    if (!$d->is_set('title'))
+
+    {
+        next;
+    }
+    my $tit = $d->get_value('title');
+    my @ml_tit = [ {lang=>'en', text=>$tit}, {lang=>'el', text=>$tit} ];
+    $d->set_value('ml_title', @ml_tit);
+    $d->commit();
+}
